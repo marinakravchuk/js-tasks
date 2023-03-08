@@ -48,3 +48,77 @@ for(let i = 0; i < arr.length; i++){
 return newArr
 }
 filterBySubstring(arr1, substr)
+
+//Написать функцию, которая принимает два аргумента: число и степень. Функция должна возводить число в заданную степень.
+
+
+function power(num, exponent) {
+    let result = 1;
+    for (let i = 0; i < exponent; i++) {
+      result *= num; //циклическое умножение числа на само себя exponent раз, используя оператор *=.
+    }
+    return result;
+  }
+  
+  console.log(power(2, 3)); // выводит 8 (2 в степени 3)
+  console.log(power(5, 2)); // выводит 25 (5 в степени 2)
+  
+
+  //Написать функцию, которая принимает массив объектов и возвращает новый массив, состоящий только из тех объектов, у которых есть свойство с заданным значением.
+
+  const users = [
+    {
+      id: 1,
+      name: 'John',
+      age: 30,
+      occupation: 'developer'
+    },
+    {
+      id: 2,
+      name: 'Jane',
+      age: 25,
+      occupation: 'designer'
+    },
+    {
+      id: 3,
+      name: 'Bob',
+      age: 40,
+      occupation: 'developer'
+    },
+    {
+      id: 4,
+      name: 'Alice',
+      age: 28,
+      occupation: 'manager'
+    }
+  ];
+  
+ // вариант через метод 
+  function filterObjectsByPropertyValue(arr, value) {
+    let result = [];
+  
+    arr.forEach(function(obj) {
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key) && obj[key] === value) {
+          result.push(obj);
+          break;
+        }
+      }
+    });
+  
+    return result;
+  }
+
+
+  //вариант через цикл
+  function filterObjectsByPropertyValue(arr, prop, value) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i][prop] === value) { //перебирает все объекты в массиве и проверяет, содержит ли свойство с именем prop значение, равное value.
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+  
+
